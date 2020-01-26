@@ -1,4 +1,4 @@
-package com.syscho.ldap.spring_ldap.controller;
+package com.syscho.ldap.controller;
 
 import java.util.List;
 
@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.syscho.ldap.spring_ldap.vo.LoginReqVo;
+import com.syscho.ldap.vo.LoginReqVo;
 
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;

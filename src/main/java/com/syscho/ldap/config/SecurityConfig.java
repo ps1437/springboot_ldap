@@ -1,4 +1,4 @@
-package com.syscho.ldap.spring_ldap.config;
+package com.syscho.ldap.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

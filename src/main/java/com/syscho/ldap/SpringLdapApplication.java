@@ -1,4 +1,4 @@
-package com.syscho.ldap.spring_ldap;
+package com.syscho.ldap;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
