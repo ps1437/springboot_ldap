@@ -42,8 +42,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.ldapAuthentication().userDnPatterns(ldapUserDnPattern).groupSearchBase(ldapSearchBase).contextSource()
-		.url(ldapUrl).and().passwordCompare().passwordEncoder(new BCryptPasswordEncoder())
-		.passwordAttribute("userPassword");
+				.url(ldapUrl).and().passwordCompare().passwordEncoder(new BCryptPasswordEncoder())
+				.passwordAttribute("userPassword");
 	}
 
 	@Override
@@ -55,6 +55,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.cors().disable();
+		http.httpBasic();
 		http.authorizeRequests().antMatchers("/*").authenticated();
 	}
 
