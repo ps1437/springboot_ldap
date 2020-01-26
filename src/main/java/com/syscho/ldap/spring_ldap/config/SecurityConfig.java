@@ -11,6 +11,11 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+/**
+ * @author Praveen $oni
+ * @category Security Config with Ldap
+ */
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -36,9 +41,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-			auth.ldapAuthentication().userDnPatterns(ldapUserDnPattern).groupSearchBase(ldapSearchBase).contextSource()
-				.url(ldapUrl).and().passwordCompare().passwordEncoder(new BCryptPasswordEncoder())
-				.passwordAttribute("userPassword");
+		auth.ldapAuthentication().userDnPatterns(ldapUserDnPattern).groupSearchBase(ldapSearchBase).contextSource()
+		.url(ldapUrl).and().passwordCompare().passwordEncoder(new BCryptPasswordEncoder())
+		.passwordAttribute("userPassword");
 	}
 
 	@Override
@@ -51,7 +56,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.cors().disable();
 		http.authorizeRequests().antMatchers("/*").authenticated();
-
 	}
 
 }
