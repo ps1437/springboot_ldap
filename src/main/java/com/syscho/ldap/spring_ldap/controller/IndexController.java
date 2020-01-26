@@ -1,5 +1,7 @@
 package com.syscho.ldap.spring_ldap.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -22,6 +24,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.syscho.ldap.spring_ldap.vo.LoginReqVo;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
 @RestController
 @RequestMapping("/auth")
 public class IndexController {
@@ -29,6 +35,10 @@ public class IndexController {
 	@Autowired
 	AuthenticationManager mgr;
 
+	@ApiOperation(value = "Login Request")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Login Success"),
+			@ApiResponse(code = 401, message = "Invalid credentials"),
+			@ApiResponse(code = 500, message = "Server Error"), })
 	@PostMapping("/login")
 	public ResponseEntity<?> data(@RequestBody LoginReqVo loginReqVo) {
 		String username = StringUtils.trimAllWhitespace(loginReqVo.getUsername());

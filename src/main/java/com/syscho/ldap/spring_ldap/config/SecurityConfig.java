@@ -36,16 +36,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		// auth.inMemoryAuthentication().withUser("user").password("{noop}password").roles("Admin");
-
-		auth.ldapAuthentication().userDnPatterns(ldapUserDnPattern).groupSearchBase(ldapSearchBase).contextSource()
+			auth.ldapAuthentication().userDnPatterns(ldapUserDnPattern).groupSearchBase(ldapSearchBase).contextSource()
 				.url(ldapUrl).and().passwordCompare().passwordEncoder(new BCryptPasswordEncoder())
 				.passwordAttribute("userPassword");
 	}
 
 	@Override
-	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers("/auth/**");
+	public void configure(WebSecurity web) {
+		web.ignoring().antMatchers("/auth/**", "/swagger-resources/**", "/api**", "/swagger-ui.html", "/resources/**");
 
 	}
 
