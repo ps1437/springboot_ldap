@@ -28,7 +28,8 @@ public class SwaggerConfig {
 	}
 
 	private ApiInfo apiInfo() {
-		return new ApiInfoBuilder().title("Claim Search Service").description("Spring Ldap Swagger")
+		return new ApiInfoBuilder().title("SpringBoot Ldap Authentication")
+				.description("Demo project to demonstrate Springboot Ldap Authentication")
 				.version("1.0.0").license("Apache License Version 2.0")
 				.licenseUrl("https://www.apache.org/licenses/LICENSE-2.0\"").build();
 	}
