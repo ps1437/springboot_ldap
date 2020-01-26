@@ -23,7 +23,7 @@ public class SwaggerConfig {
 	@Bean
 	public Docket api() {
 		return new Docket(DocumentationType.SWAGGER_2).select()
-				.apis(RequestHandlerSelectors.basePackage("com.syscho.ldap.spring_ldap.controller"))
+				.apis(RequestHandlerSelectors.basePackage("com.syscho.ldap.controller"))
 				.paths(PathSelectors.regex("/.*")).build().apiInfo(apiInfo());
 	}
 
